@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=MessageQ1
+comment1.params=texte
+comment1.target=MessageQ1(java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getTexte()
+comment3.params=
+comment3.target=java.util.Date\ getEstampille()
+comment4.params=d
+comment4.target=void\ setEstampille(java.util.Date)
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6

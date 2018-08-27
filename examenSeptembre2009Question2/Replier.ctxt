@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Replier()
+comment1.params=connection\ requestQueueName
+comment1.target=Replier\ newReplier(Connection,\ String)
+comment2.params=connection\ requestQueueName
+comment2.target=void\ initialize(Connection,\ String)
+comment3.params=message
+comment3.target=void\ onMessage(Message)
+comment4.params=args
+comment4.target=void\ main(String[])
+numComments=5

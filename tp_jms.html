@@ -1,0 +1,781 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta http-equiv="Bulletin-Text"
+content="tp4 pattern observateur">
+<meta http-equiv="Bulletin-Date"
+content="Wed, 06-Jul-05 17:56:02">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<link rel="File-List" href="tp_jms_fichiers/filelist.xml">
+<title>tp_jms</title>
+<!-- Created with AOLpress/2.0 -->
+<style>
+<!--
+h1
+	{margin-top:0cm;
+	margin-right:-41.4pt;
+	margin-bottom:0cm;
+	margin-left:-27.0pt;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Times New Roman";
+	}
+-->
+</style>
+<!--[if !mso]>
+<style>
+v\:*         { behavior: url(#default#VML) }
+o\:*         { behavior: url(#default#VML) }
+.shape       { behavior: url(#default#VML) }
+</style>
+<![endif]--><!--[if gte mso 9]>
+<xml><o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]-->
+</head>
+
+<body bgcolor="#FFFF6C">
+
+<p align="center"><font size="6"><strong>tp_jms</strong></font> </p>
+<div align="center"><center>
+
+<table border="1" cellpadding="2">
+    <tr>
+        <td><font size="4">Java Message Service</font> <ul>
+            <li><font size="4">Usage de </font><a
+                href="http://openjms.sourceforge.net"><font
+                size="4">OpenJMS <img src="tp_jms1.jpg"
+                border="0" width="200" height="50"></font></a> </li>
+            <li><font size="4">Documentation des API </font><a
+                href="http://java.sun.com/products/jms/"><font
+                size="4">chez Sun</font></a><font size="4"> ou au
+                </font><a
+                href="http://jfod.cnam.fr/NSY102/jms1.1/doc/api/"><font
+                size="4">Cnam/jfod</font></a> </li>
+        </ul>
+        </td>
+    </tr>
+</table>
+</center></div>
+
+<p><font size="4"><strong>Installation d'OpenJMS</strong></font> </p>
+
+<blockquote>
+    <p>Suivez les instructions d'installation <a
+    href="http://openjms.sourceforge.net">d'OpenJMS</a> sur votre
+    poste </p>
+</blockquote>
+
+<p><font size="4"><strong>Usage d'OpenJMS avec BlueJ</strong></font>
+</p>
+
+<blockquote>
+    <p>1) <strong>Compilez</strong> les exemples fournis par
+    OpenJMS, placés dans le répertoire <strong>jms_examples</strong>
+    </p>
+    <blockquote>
+        <ul>
+            <li>Notez que depuis bluej, seule la compilation est possible, l'exécution
+                sera effectuée depuis une console en ligne de
+                commande</li>
+            <li>Le répertoire +libs de votre répertoire 
+            contient toutes les interfaces JMS, c.f. archive jms1.1.jar</li>
+        </ul>
+    </blockquote>
+    <p>2) <strong>Démarrez</strong> OpenJMS, une mise en oeuvre
+    possible est <a href="http://jfod.cnam.fr/NSY102/ed/ed_08_jms/">ici </a> </p>
+    <blockquote>
+        <p>console&gt; \openjms-0.7.7-beta-1\bin&gt;admin<br>
+        (Actions/Start OpenJMS, puis Connections/online), sans
+        oublier de positionner JAVA_HOME </p>
+        <p>cette interface vous permettra de créer les files,
+        &quot;topic&quot;, etc.. nécessaires ensuite</p>
+    </blockquote>
+    <p>3) <strong>Exécutez</strong> dans deux consoles ces deux
+    commandes, votre répertoire se nomme /tp_jms/ </p>
+    <blockquote>
+        <ul>
+            <li>console Sender : </li>
+        </ul>
+    </blockquote>
+    <p><img src="tp_jms3.jpg" width="989" height="118"> </p>
+    <blockquote>
+        <ul>
+            <li>console Receiver </li>
+        </ul>
+    </blockquote>
+    <p><img src="tp_jms4.jpg" width="1040" height="108"> </p>
+    <p>&nbsp; </p>
+    <p><font size="4"><strong>En résumé </strong></font></p>
+    <blockquote>
+        <ul>
+            <li><font size="4"><strong>Usage de BlueJ pour  l'édition, compilation et soumissions avec JNEWS</strong></font>
+            </li>
+            <li><font size="4"><strong>L'exécution s'effectue
+                depuis une console avec l'environnement </strong><em><strong>openjms-0.7.7-beta-1/lib</strong></em></font>
+            </li>
+        </ul>
+    </blockquote>
+</blockquote>
+
+<hr>
+
+<p><img src="question1.jpg" alt="[Image]" align="middle"
+width="91" height="73"><font size="4"><strong> 2 Files, 1 Client,
+1 Fournisseur</strong></font> </p>
+
+<p><font size="4">Complétez l'architecture du Patron &quot;</font><a
+href="http://www.enterpriseintegrationpatterns.com/RequestReply.html"><font
+size="4">Request Reply</font></a><font size="4">&quot;, dont le
+schéma est extrait du livre de G.Hohpe &amp; B. Woolf ci-dessous</font>
+</p>
+
+<blockquote>
+    <blockquote>
+        <p><font size="4"><img src="tp_jms5.jpg" width="802"
+        height="253"></font> </p>
+    </blockquote>
+</blockquote>
+
+<blockquote>
+    <ul>
+        <li><font size="4"><u>Consumer</u> : Envoie un message de
+            type MessageQ1 sur &quot;RequestChannel&quot; <br>
+            et réceptionne un message depuis
+            &quot;ReplyChannel&quot;</font> </li>
+    </ul>
+    <ul>
+        <li><font size="4"><u>Provider</u> : reçoit les messages
+            venant de &quot;RequestChannel&quot; et se contente
+            de retourner le message reçu<br>
+            estampillé avec la date de &quot;traitement&quot;
+            par le Provider...<br>
+            Préférez une implémentation asynchrone de ce
+            &quot;Provider&quot;<br>
+            voir l'interface MessageListener<br>
+            </font></li>
+    </ul>
+    <blockquote>
+        <p><img src="tp_jms7.jpg" width="711" height="443"> </p>
+    </blockquote>
+    <blockquote>
+        <p>&nbsp; </p>
+        <p><font size="4">Exemple : UnScenario, envoi d'un
+        message et affichage du résultat retourné</font> </p>
+        <p><font size="4">la trace : </font></p>
+        <p><font size="4"><img src="tp_jms8.jpg" width="1037"
+        height="60"></font> </p>
+        <p><font size="4">le source :</font> </p>
+        <table border="1" bgcolor="#FFFFFF">
+            <tr>
+                <td><pre>public class UnScenario{
+    public static void main(String[] args) throws Exception{
+      Provider provider=null;
+      Consumer consumer=null;
+      try{
+        provider = new Provider(&quot;request&quot;,&quot;reply&quot;);
+
+        
+        consumer = new Consumer(&quot;request&quot;,&quot;reply&quot;);
+       
+        consumer.send(&quot;test_envoi&quot;);
+        System.out.print(&quot;message recu : &quot;);
+        System.out.println(consumer.receive().toString());
+      }finally{
+        consumer.close();
+        provider.close();
+      }
+    }
+}
+</pre>
+                </td>
+            </tr>
+        </table>
+        <p>&nbsp; </p>
+    </blockquote>
+    <p><font size="4">notes : </font></p>
+    <blockquote>
+        <ul>
+            <li><font size="4">Les files ont été créées par
+                l'administrateur,</font> </li>
+            <li><font size="4">Le nom des files est libre,</font>
+            </li>
+            <li><font size="4">L'ordre d'exécution du
+                &quot;Consumer&quot; et du &quot;Provider&quot;
+                est indifférent (voir la classe UnAutreScenario)</font>
+            </li>
+        </ul>
+    </blockquote>
+    <p>&nbsp; </p>
+    <hr>
+    <p><font color="#FF0000" size="4"><strong>Après avoir
+    réalisé et soumis cette question avec JNEWS</strong></font></p>
+    <ul>
+        <li><font size="4">Étudier et détaillez sur votre
+            rapport ces quelques lignes, <br>
+            représentent-elles une autre proposition
+            d'implémentation du patron &quot;RequestReply&quot;</font>
+            <font size="5">?</font><br>
+            <table border="1" cellpadding="2">
+                <tr>
+                    <td bgcolor="#FFFFFF"><pre>producer = session.CreateProducer(msg.getJMSReplyTo());
+reply = session.createTextMessage(&quot;reply&quot;);
+reply.setJMSCorrelationID(msg.getJMSMessageID());
+producer.send(reply);</pre>
+                    </td>
+                </tr>
+            </table>
+        </li>
+        <li><font size="4">Lire attentivement cette
+            implémentation du patron RequestReply, commentée
+            par quelques lignes sur votre rapport</font></li>
+    </ul>
+    <blockquote>
+        <p><a
+        href="http://www.enterpriseintegrationpatterns.com/RequestReplyJmsExample.html"><font
+        size="4">http://www.enterpriseintegrationpatterns.com/RequestReplyJmsExample.html</font></a>
+        </p>
+        <p>&nbsp;</p>
+    </blockquote>
+</blockquote>
+
+<blockquote>
+    <blockquote>
+        <blockquote>
+        </blockquote>
+    </blockquote>
+</blockquote>
+
+<hr>
+
+<p><img src="question2.jpg" alt="[Image]" align="middle"
+width="90" height="73"> <font size="4"><strong>Publish-Subscribe</strong></font>
+</p>
+
+<blockquote>
+    <p><font size="4">Ce schéma du Publish Subscribe est extrait
+    du livre de G.Hohpe &amp; B. Woolf</font></p>
+</blockquote>
+
+<blockquote>
+    <blockquote>
+        <p><img src="tp_jms10.jpg" width="588" height="387"> </p>
+    </blockquote>
+</blockquote>
+
+<p><font size="4">Complétez l'architecture de l'agenda
+ci-dessous, c'est un agenda d'équipe(&quot;meeting&quot;) une
+prise de rendez-vous engendre la publication de ce rendez-vous à
+tous les abonnés de l'agenda</font> </p>
+
+<blockquote>
+    <blockquote>
+        <p><font size="4"><img src="tp_jms11.jpg" width="491"
+        height="317"></font> </p>
+    </blockquote>
+</blockquote>
+
+<ul>
+    <li><font size="4"><u>RendezVous</u> : Un rendez-vous, soit
+        le message transmis qui est composé d'une date et d'un
+        motif</font> </li>
+</ul>
+
+<ul>
+    <li><font size="4"><u>PriseDeRDV</u>: Cette classe permet la
+        publication des rendez-vous auprès de l'agenda</font> </li>
+    <li><font size="4"><u>Souscription</u>: Cette classe permet
+        la création d'un abonné auprès de l'agenda</font> </li>
+</ul>
+
+<blockquote>
+    <ul>
+        <li><font size="4">note : L'agenda, (Topic) a été
+            créé par l'administrateur.</font></li>
+    </ul>
+    <p>&nbsp;</p>
+</blockquote>
+
+<p><font size="4">Exemple : UnScenario, prise d'un rendez-vous,
+un agenda avec 3 abonnés</font> </p>
+
+<blockquote>
+    <blockquote>
+        <p><font size="4">la trace : </font></p>
+    </blockquote>
+</blockquote>
+
+<blockquote>
+    <p><font size="4"><img src="tp_jms13.jpg" width="1016"
+    height="63"></font> </p>
+</blockquote>
+
+<blockquote>
+    <blockquote>
+        <p><font size="4"><strong>le source</strong></font> </p>
+    </blockquote>
+    <table border="1">
+        <tr>
+            <td bgcolor="#FFFFFF"><pre>public class UnScenario{
+    public static void main(String[] args) throws Exception{
+      Souscription s1=null,s2=null,s3=null;
+      PriseDeRDV priseDeRDV=null;
+      try{
+        s1 = new Souscription(&quot;agenda&quot;);
+        s2 = new Souscription(&quot;agenda&quot;);
+        s3 = new Souscription(&quot;agenda&quot;);
+
+        
+        priseDeRDV = new PriseDeRDV(&quot;agenda&quot;);
+       
+        priseDeRDV.publier(RendezVous.MAINTENANT);
+        //Thread.sleep(1000000);
+      }finally{
+        s1.close();s2.close();s3.close();
+        priseDeRDV.close();
+      }
+    }
+}<a
+href="public%20class%20UnScenario{%20%20%20%20public%20static%20void%20main(String[]%20args)%20throws%20Exception{%20%20%20%20%20%20Souscription%20s1=null,s2=null,s3=null;%20%20%20%20%20%20PriseDeRDV%20priseDeRDV=null;%20%20%20%20%20%20try{%20%20%20%20%20%20%20%20s1%20=%20new%20Souscription(%22agenda%22);%20%20%20%20%20%20%20%20s2%20=%20new%20Souscription(%22agenda%22);%20%20%20%20%20%20%20%20s3%20=%20new%20Souscription(%22agenda%22);%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20priseDeRDV%20=%20new%20PriseDeRDV(%22agenda%22);%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20priseDeRDV.publier(RendezVous.MAINTENANT);%20%20%20%20%20%20%20%20/Thread.sleep(1000000);%20%20%20%20%20%20}finally{%20%20%20%20%20%20%20%20s1.close();s2.close();s3.close();%20%20%20%20%20%20%20%20priseDeRDV.close();%20%20%20%20%20%20}%20%20%20%20}}">
+</a>
+</pre>
+            </td>
+        </tr>
+    </table>
+</blockquote>
+
+<hr>
+
+<p><img src="question3.jpg" alt="[Image]" align="middle"
+width="87" height="75"> <font size="4"><strong>Durable Subscriber</strong></font></p>
+
+<blockquote>
+    <blockquote>
+        <blockquote>
+            <p><font size="4"><strong><img src="tp_jms14.jpg"
+            width="410" height="306"></strong></font> </p>
+        </blockquote>
+    </blockquote>
+</blockquote>
+
+<p><font size="4"><strong>Il suffit qu'un abonné soit absent,
+déconnecté </strong>pour qu'il ne reçoive pas le rendez-vous.
+Complétez la classe &quot;SouscriptionDurable&quot; afin qu'un
+abonné ait bien son rendez-vous, et ainsi soit prévenu.</font></p>
+
+<p>&nbsp;</p>
+
+<blockquote>
+    <blockquote>
+        <p><img src="tp_jms17.jpg" width="359" height="249"></p>
+    </blockquote>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<p><font size="4"><strong>Falcultatif : Vérifiez avec openJMS,
+la possibilité de filtrer les rendez-vous</strong> proposez un
+exemple d'abonnement sélectif </font></p>
+
+<blockquote>
+    <p><font size="4">comme par exemple le cas d'un abonné qui
+    ne souhaite être prévenu que lorsque le rendez-vous est
+    dans l'heure suivante ...</font></p>
+</blockquote>
+
+<hr>
+
+<p>&nbsp; <img src="tp_jms15.jpg" width="99" height="72"><font
+size="4"><strong> Une Transaction, illustration, pas de
+soumission avec JNEWS</strong></font></p>
+
+<blockquote>
+    <p>&nbsp;</p>
+    <ul>
+        <li><font size="4">Vérifiez le bon fonctionnement des
+            transactions JMS, en exécutant la classe proposée,
+            et en interprétant la trace obtenue</font></li>
+    </ul>
+    <p><font size="4"><img src="tp_jms16.jpg" width="1100"
+    height="93"></font></p>
+    <p><font size="4">ci-dessous, un extrait
+    &quot;allégé&quot;: envoi de deux messages, à l'occurrence
+    de l'exception, appel de </font><font color="#FF0000"
+    size="5">session.rollback</font></p>
+    <table border="1">
+        <tr>
+            <td bgcolor="#FFFFFF"><pre>        Session session = null;
+        try{
+        // envoi, d'un message aux 3 files ...
+          session = connexion.createSession(<font color="#FF0000"
+size="4"><strong>true</strong></font>, Session.AUTO_ACKNOWLEDGE);
+          Destination dest = (Destination) contexte.lookup(&quot;queue1&quot;);
+          MessageProducer sender = session.createProducer(dest);
+          TextMessage message = session.createTextMessage(&quot;envoi_queue1&quot;);
+          sender.send(message);
+          
+          dest = (Destination) contexte.lookup(&quot;queue2&quot;);
+          sender = session.createProducer(dest);
+          message = session.createTextMessage(&quot;envoi_queue2&quot;);
+          sender.send(message);
+          
+          dest = (Destination) contexte.lookup(&quot;queue_introuvable&quot;);
+         <font color="#00FF00"><strong> </strong></font><font
+color="#008040" size="5"><strong>session.commit();</strong></font>
+        }catch(javax.naming.NameNotFoundException e){
+          System.out.println(e.getMessage() + &quot; est effectivement introuvable, rollback&quot;);
+          <font color="#FF0000" size="5"><strong>session.rollback();</strong></font>
+        }catch(Exception e){
+          e.printStackTrace();
+        }</pre>
+            </td>
+        </tr>
+    </table>
+    <p>&nbsp;</p>
+    <ul>
+        <li><font size="4">Ajoutez vos propres essais de mise en
+            oeuvre des transactions, </font></li>
+    </ul>
+    <p><font size="4">par exemple, une nouvelle file, un
+    &quot;topic&quot; supplémentaire, ...</font></p>
+    <p>&nbsp;</p>
+    <p><font size="4">Installez les sources et traces de vos
+    essais supplémentaires sur votre rapport</font></p>
+
+<blockquote>
+    <p>&nbsp;</p>
+</blockquote>
+
+<hr>
+
+    <p><font size="6">Post-liminaire : Lecture d'une solution à la question 2 de l'examen de 
+    septembre 2009</font></p>
+    <h1 style="margin-left:0cm"><span lang="EN-GB" style="font-size: 16.0pt">
+    Thème : Patron <i>Return Address</i></span></h1>
+    <p class="MsoBodyTextIndent" style="text-align:justify">Le message envoyé 
+    contient une «&nbsp;Adresse de Retour&nbsp;» qui désigne le récepteur du résultat.</p>
+    <p class="MsoBodyTextIndent" align="center" style="text-align:center"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_s1025" type="#_x0000_t75" style='width:378pt;
+ height:213pt' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="tp_jms_fichiers/image001.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=504 height=284
+src="tp_jms_fichiers/image002.jpg" v:shapes="_x0000_s1025"><![endif]></p>
+    <p class="MsoNormal" align="center" style="margin-right:-41.4pt;text-align:center;
+text-indent:8.4pt">Source : http://www.enterpriseintegrationpatterns.com/ReturnAddress.html</p>
+    <p class="MsoNormal" style="margin-right:-41.4pt;text-align:justify;text-indent:
+8.4pt">Le message contient un canal de communication (<i>ReplyChannel</i>), sur 
+    lequel est envoyé le traitement effectué par le receveur (<i>Replier</i>). 
+    <br>
+    Cette encapsulation permet au receveur, d’&nbsp;«&nbsp;ignorer&nbsp;» l’émetteur (<i>Requestor</i>), 
+    le demandeur d’un traitement à accomplir. <br>
+    Le message est transmis au 
+    receveur par le canal (<i>RequestChannel</i>).</p>
+    <p class="MsoNormal" style="margin-right:-41.4pt;text-indent:35.4pt"><b>
+    Question) </b>Proposez le patron <i>Return Address</i> en utilisant l’API 
+    JMS, JAVA Message Service, </p>
+    <p class="MsoNormal" style="margin-top:0cm;margin-right:-41.4pt;margin-bottom:
+0cm;margin-left:106.2pt;margin-bottom:.0001pt;text-indent:35.4pt"><!--[if gte vml 1]><v:shape
+ id="_x0000_s1026" type="#_x0000_t75" style='width:202.5pt;height:65.25pt'
+ o:bordertopcolor="this" o:borderleftcolor="this" o:borderbottomcolor="this"
+ o:borderrightcolor="this">
+ <v:imagedata src="tp_jms_fichiers/image003.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=270 height=87
+src="tp_jms_fichiers/image004.jpg" v:shapes="_x0000_s1026"><![endif]></p>
+    <p class="MsoNormal" style="margin-right:-41.4pt;text-indent:35.4pt">
+    Complétez les classes <b><i>Requestor</i></b> et <b><i>Relier</i></b> 
+    ci-dessous, en proposant respectivement les méthodes de classe <i>
+    newRequestor</i> et <i>newRelier. </i>Les files RequestChannel, 
+    ReplyChannel_1 et ReplyChannel_2 ont été créées par l’administrateur JMS.</p>
+    <p class="MsoNormal" style="margin-right:-41.4pt;text-indent:35.4pt"><b>
+    <span style="font-size:14.0pt">La classe <i>Requestor</i> à compléter à 
+    l'examen, complète ici</span></b></p>
+    <table border="1" bgcolor="#FFFFFF" style="border-collapse: collapse" bordercolor="#111111" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="100%"><font face="Courier New" size="2">package question2;<br>
+        <br>
+        import javax.jms.Connection;<br>
+        import javax.jms.ConnectionFactory;<br>
+        import javax.jms.Destination;<br>
+        import javax.jms.JMSException;<br>
+        import javax.jms.Message;<br>
+        import javax.jms.MessageConsumer;<br>
+        import javax.jms.MessageListener;<br>
+        import javax.jms.MessageProducer;<br>
+        import javax.jms.Session;<br>
+        import javax.jms.TextMessage;<br>
+        <br>
+        import javax.naming.Context;<br>
+        import javax.naming.InitialContext;<br>
+        import javax.naming.NamingException;<br>
+        <br>
+        import java.util.Hashtable;<br>
+        <br>
+        public class Requestor implements MessageListener {<br>
+        private static Context context;<br>
+        <br>
+        private Session session;<br>
+        private Destination replyQueue;<br>
+        private MessageProducer requestProducer;<br>
+        private MessageConsumer replyConsumer;<br>
+        <br>
+        protected Requestor() {<br>
+        super();<br>
+        }<br>
+        <br>
+        public static Requestor newRequestor(Connection connection, Destination 
+        requestQueue, String replyQueueName)<br>
+        throws JMSException, NamingException {<br>
+        <br>
+        Requestor requestor = new Requestor();<br>
+        requestor.initialize(connection, requestQueue, replyQueueName);<br>
+        return requestor;<br>
+        }<br>
+        <br>
+        protected void initialize(Connection connection, Destination 
+        requestQueue, String replyQueueName)<br>
+        throws NamingException, JMSException {<br>
+        <br>
+        session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);<br>
+        replyQueue = (Destination) context.lookup(replyQueueName); //args[0]); 
+        // ReplyChannel_1 ou ReplyChannel_2<br>
+        requestProducer = session.createProducer(requestQueue);<br>
+        replyConsumer = session.createConsumer(replyQueue);<br>
+        replyConsumer.setMessageListener(this);<br>
+        // start the connection, to enable message receipt<br>
+        connection.start();<br>
+        }<br>
+        <br>
+        public void send(String message) throws JMSException {<br>
+        &nbsp;
+        TextMessage requestMessage = session.createTextMessage();<br>
+        &nbsp;
+        requestMessage.setText(message);<br>
+        &nbsp;
+        requestMessage.setJMSReplyTo(replyQueue);<br>
+        &nbsp;
+        requestProducer.send(requestMessage);<br>
+        &nbsp;
+        System.out.println(&quot;Sent request&quot;);<br>
+        &nbsp;
+        System.out.println(&quot;\tTime: &quot; + System.currentTimeMillis() + &quot; ms&quot;);<br>
+        &nbsp;
+        System.out.println(&quot;\tMessage ID: &quot; + requestMessage.getJMSMessageID());<br>
+        &nbsp;
+        System.out.println(&quot;\tCorrel. ID: &quot; + requestMessage.getJMSCorrelationID());<br>
+        &nbsp;
+        System.out.println(&quot;\tReply to: &quot; + requestMessage.getJMSReplyTo());<br>
+        &nbsp;
+        System.out.println(&quot;\tContents: &quot; + requestMessage.getText());<br>
+        }<br>
+        <br>
+        <br>
+        public void onMessage(Message msg) {<br>
+        try{<br>
+        &nbsp;if (msg instanceof TextMessage) {<br>
+        &nbsp;
+        TextMessage replyMessage = (TextMessage) msg;<br>
+        &nbsp;
+        System.out.println(&quot;Received reply &quot;);<br>
+        &nbsp;
+        System.out.println(&quot;\tTime: &quot; + System.currentTimeMillis() + &quot; ms&quot;);<br>
+        &nbsp;
+        System.out.println(&quot;\tMessage ID: &quot; + replyMessage.getJMSMessageID());<br>
+        &nbsp;
+        System.out.println(&quot;\tCorrel. ID: &quot; + replyMessage.getJMSCorrelationID());<br>
+        &nbsp;
+        System.out.println(&quot;\tReply to: &quot; + replyMessage.getJMSReplyTo());<br>
+        &nbsp;
+        System.out.println(&quot;\tContents: &quot; + replyMessage.getText());<br>
+        &nbsp;} else {<br>
+        &nbsp;&nbsp;
+        System.out.println(&quot;Invalid message detected&quot;);<br>
+        &nbsp;}<br>
+        } catch (JMSException e) {<br>
+        e.printStackTrace();<br>
+        }<br>
+        }<br>
+        <br>
+        public static void main(String[] args) throws Exception{<br>
+        // create the JNDI initial context<br>
+        // nsy102 lignes extraites de http://openjms.sourceforge.net/usersguide/using.html<br>
+        Hashtable&lt;String,String&gt; properties = new Hashtable&lt;String,String&gt;();<br>
+        properties.put(Context.INITIAL_CONTEXT_FACTORY, &quot;org.exolab.jms.jndi.InitialContextFactory&quot;);<br>
+        properties.put(Context.PROVIDER_URL, &quot;tcp://localhost:3035/&quot;);<br>
+        <br>
+        Requestor.context = new InitialContext(properties);<br>
+        <br>
+        // look up the ConnectionFactory<br>
+        ConnectionFactory factory = (ConnectionFactory) context.lookup(&quot;ConnectionFactory&quot;);<br>
+        <br>
+        // look up the Destination<br>
+        Destination requestChannel = (Destination) context.lookup(&quot;RequestChannel&quot;);<br>
+        <br>
+        // create the connection<br>
+        Connection connection = factory.createConnection();<br>
+        <br>
+        Requestor requestor = Requestor.newRequestor(connection, requestChannel, 
+        args[0]);<br>
+        requestor.send(args[1]); // le message<br>
+        Thread.sleep(Long.MAX_VALUE);<br>
+        }<br>
+        }<br>
+&nbsp;</font></td>
+      </tr>
+    </table>
+    <p class="MsoNormal" style="margin-right:-41.4pt;text-indent:35.4pt">&nbsp;</p>
+    <p class="MsoNormal" style="margin-right:-41.4pt;text-indent:35.4pt"><b>
+    <span style="font-size:14.0pt">La classe <i>Relier</i> à compléter, </span>
+    <span style="font-size:14.0pt">&nbsp;à l'examen, complète ici</span></b></p>
+    <table border="1" bgcolor="#FFFFFF" style="border-collapse: collapse" bordercolor="#111111" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="100%"><font face="Courier New" size="2">package question2;<br>
+        <br>
+        import javax.jms.Connection;<br>
+        import javax.jms.ConnectionFactory;<br>
+        import javax.jms.Destination;<br>
+        import javax.jms.JMSException;<br>
+        import javax.jms.Message;<br>
+        import javax.jms.MessageConsumer;<br>
+        import javax.jms.MessageListener;<br>
+        import javax.jms.MessageProducer;<br>
+        import javax.jms.Session;<br>
+        import javax.jms.TextMessage;<br>
+        <br>
+        import javax.naming.Context;<br>
+        import javax.naming.InitialContext;<br>
+        import javax.naming.NamingException;<br>
+        <br>
+        import java.util.Hashtable;<br>
+        <br>
+        public class Replier implements MessageListener {<br>
+        <br>
+        private Session session;<br>
+        private static Context context;<br>
+        <br>
+        protected Replier() {<br>
+        super();<br>
+        }<br>
+        <br>
+        public static Replier newReplier(Connection connection, String 
+        requestQueueName)<br>
+        throws JMSException, NamingException {<br>
+        <br>
+        Replier replier = new Replier();<br>
+        replier.initialize(connection, requestQueueName);<br>
+        return replier;<br>
+        }<br>
+        <br>
+        protected void initialize(Connection connection, String requestQueueName)<br>
+        throws NamingException, JMSException {<br>
+        <br>
+        session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);<br>
+        // look up the Destination<br>
+        Destination requestQueue = (Destination) context.lookup(requestQueueName);<br>
+        MessageConsumer requestConsumer = session.createConsumer(requestQueue);<br>
+        requestConsumer.setMessageListener(this);<br>
+        // start the connection, to enable message receipt<br>
+        connection.start();<br>
+        }<br>
+        <br>
+        public void onMessage(Message message) {<br>
+        try {<br>
+        if ((message instanceof TextMessage) &amp;&amp; (message.getJMSReplyTo() != null)) 
+        {<br>
+&nbsp; TextMessage requestMessage = (TextMessage) message;<br>
+&nbsp; System.out.println(&quot;Received request&quot;);<br>
+&nbsp; System.out.println(&quot;\tTime: &quot; + System.currentTimeMillis() + &quot; ms&quot;);<br>
+&nbsp; System.out.println(&quot;\tMessage ID: &quot; + requestMessage.getJMSMessageID());<br>
+&nbsp; System.out.println(&quot;\tCorrel. ID: &quot; + requestMessage.getJMSCorrelationID());<br>
+&nbsp; System.out.println(&quot;\tReply to: &quot; + requestMessage.getJMSReplyTo());<br>
+&nbsp; System.out.println(&quot;\tContents: &quot; + requestMessage.getText());<br>
+        <br>
+        String contents = requestMessage.getText();<br>
+        Destination replyDestination = message.getJMSReplyTo();<br>
+        MessageProducer replyProducer = session.createProducer(replyDestination);<br>
+        <br>
+        TextMessage replyMessage = session.createTextMessage();<br>
+        replyMessage.setText(contents);<br>
+        replyMessage.setJMSCorrelationID(requestMessage.getJMSMessageID());<br>
+        replyProducer.send(replyMessage);<br>
+        <br>
+        System.out.println(&quot;Sent reply&quot;);<br>
+        System.out.println(&quot;\tTime: &quot; + System.currentTimeMillis() + &quot; ms&quot;);<br>
+        System.out.println(&quot;\tMessage ID: &quot; + replyMessage.getJMSMessageID());<br>
+        System.out.println(&quot;\tCorrel. ID: &quot; + replyMessage.getJMSCorrelationID());<br>
+        System.out.println(&quot;\tReply to: &quot; + replyMessage.getJMSReplyTo());<br>
+        System.out.println(&quot;\tContents: &quot; + replyMessage.getText());<br>
+        } else {<br>
+        System.out.println(&quot;Invalid message detected&quot;);<br>
+        System.out.println(&quot;\tType: &quot; + message.getClass().getName());<br>
+        System.out.println(&quot;\tTime: &quot; + System.currentTimeMillis() + &quot; ms&quot;);<br>
+        System.out.println(&quot;\tMessage ID: &quot; + message.getJMSMessageID());<br>
+        System.out.println(&quot;\tCorrel. ID: &quot; + message.getJMSCorrelationID());<br>
+        System.out.println(&quot;\tReply to: &quot; + message.getJMSReplyTo());<br>
+        <br>
+        }<br>
+        } catch (JMSException e) {<br>
+        e.printStackTrace();<br>
+        }<br>
+        }<br>
+        <br>
+        public static void main(String[] args) throws Exception{<br>
+        // create the JNDI initial context<br>
+        // nsy102 lignes extraites de http://openjms.sourceforge.net/usersguide/using.html<br>
+        Hashtable&lt;String,String&gt; properties = new Hashtable&lt;String,String&gt;();<br>
+        properties.put(Context.INITIAL_CONTEXT_FACTORY, &quot;org.exolab.jms.jndi.InitialContextFactory&quot;);<br>
+        properties.put(Context.PROVIDER_URL, &quot;tcp://localhost:3035/&quot;);<br>
+        <br>
+        Replier.context = new InitialContext(properties);<br>
+        <br>
+        // look up the ConnectionFactory<br>
+        ConnectionFactory factory = (ConnectionFactory) context.lookup(&quot;ConnectionFactory&quot;);<br>
+        <br>
+        // create the connection<br>
+        Connection connection = factory.createConnection();<br>
+        <br>
+        Replier replier = Replier.newReplier(connection, &quot;RequestChannel&quot;);<br>
+        <br>
+        Thread.sleep(Long.MAX_VALUE);<br>
+        }<br>
+        }<br>
+        <br>
+&nbsp;</font></td>
+      </tr>
+    </table>
+    <p>&nbsp;</p>
+    <p><b>Exécution en 3 lignes de commandes</b></p>
+    <p>start java -cp G:\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;. 
+    question2.Replier <br>
+    start java -cp G:\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;. 
+    question2.Requestor ReplyChannel_1 truc1<br>
+    start java -cp G:\openjms-0.7.7-beta-1\lib\openjms-0.7.7-beta-1.jar;. 
+    question2.Requestor ReplyChannel_2 truc2</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+</blockquote>
+
+<p>&nbsp; </p>
+</body>
+</html>

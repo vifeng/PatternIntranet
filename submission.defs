@@ -1,0 +1,45 @@
+jnews_NSY102{
+
+  tp_jms_question1_evaluation{
+    .file.include=*.class;
+    .transport=http://jfod.cnam.fr/jnews/junit3/AllTests.html?auteur=<field:auteur>&matricule=<field:matricule>&uv=NSY102&tp=tp_jms_q1&client=bluej;
+  }
+  tp_jms_question2_evaluation{
+    .file.include=*.class;
+    .transport=http://jfod.cnam.fr/jnews/junit3/AllTests.html?auteur=<field:auteur>&matricule=<field:matricule>&uv=NSY102&tp=tp_jms_q2&client=bluej;
+  }
+  tp_jms_question3_evaluation{
+    .file.include=*.class;
+    .transport=http://jfod.cnam.fr/jnews/junit3/AllTests.html?auteur=<field:auteur>&matricule=<field:matricule>&uv=NSY102&tp=tp_jms_q3&client=bluej;
+  }
+
+  javadoc_evaluation{
+    .file.include=*.java;
+    .transport=http://jfod.cnam.fr/jnews/checkstyle/javadoc.html?auteur=<field:auteur>&matricule=<field:matricule>&uv=NSY102&tp=tp_jms&client=bluej;
+  }
+
+  historique{
+    .file.include=README.TXT;
+    .transport=http://jfod.cnam.fr/jnews/interrogation/historique.html?auteur=<field:auteur>&matricule=<field:matricule>&uv=NSY102&client=bluej;
+  }
+
+
+  resultats_question1_junit3{
+    .file.include=README.TXT;
+    .transport=http://jfod.cnam.fr/jnews/interrogation/resultats.html?outil=junit3&uv=NSY102&tp=tp_jms_q1&client=bluej;
+  }
+  resultats_question2_junit3{
+    .file.include=README.TXT;
+    .transport=http://jfod.cnam.fr/jnews/interrogation/resultats.html?outil=junit3&uv=NSY102&tp=tp_jms_q2&client=bluej;
+  }
+  resultats_question3_junit3{
+    .file.include=README.TXT;
+    .transport=http://jfod.cnam.fr/jnews/interrogation/resultats.html?outil=junit3&uv=NSY102&tp=tp_jms_q3&client=bluej;
+  }
+
+
+  findbugs{
+    .file.include=*.class;
+    .transport=http://jfod.cnam.fr/jnews/findbugs/findbugs.html?auteur=<field:auteur>&matricule=<field:matricule>&uv=NSY102&tp=tp_jms&client=bluej;
+  }
+}

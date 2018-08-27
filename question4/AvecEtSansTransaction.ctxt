@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=AvecEtSansTransaction
+comment1.params=
+comment1.target=void\ sansTransaction()
+comment1.text=\ Envoi\ sans\ transaction\ sur\ 3\ files,\n\ la\ derniere\ file,\ n'existe\ pas,\ ce\ qui\ engendre\ une\ exception\n
+comment2.params=
+comment2.target=void\ avecTransaction()
+comment2.text=\ Envoi\ sans\ transaction\ sur\ 3\ files,\n\ la\ derniere\ file,\ n'existe\ pas,\ ce\ qui\ engendre\ une\ exception\n
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+numComments=4

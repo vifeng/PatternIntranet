@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Provider
+comment1.params=requestChannel\ replyChannel
+comment1.target=Provider(java.lang.String,\ java.lang.String)
+comment1.text=\ Cr\u00E9ation\ du\ Consumer\n\ @param\ requestChannel\ le\ nom\ de\ la\ file\ pour\ l'envoi\n\ @param\ replyChannel\ le\ nom\ de\ la\ file\ pour\ la\ r\u00E9ception\n
+comment2.params=message
+comment2.target=void\ onMessage(javax.jms.Message)
+comment3.params=
+comment3.target=void\ close()
+comment4.params=args
+comment4.target=void\ main(java.lang.String[])
+numComments=5

@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=SouscriptionDurable
+comment0.text=\n\ \n\n
+comment1.params=topicName\ identifier
+comment1.target=SouscriptionDurable(java.lang.String,\ java.lang.String)
+comment2.params=message
+comment2.target=void\ onMessage(javax.jms.Message)
+numComments=3

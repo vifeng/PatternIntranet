@@ -1,0 +1,42 @@
+
+
+///////////////////////////////////////////////////
+/////////////   OPENJMS /////////////////
+///////////////////////////////////////////////////
+
+	télécharger JMS
+ 	définir la variable d''environnement $JAVA_HOME si c pas déjà fait
+ 	sous mac il faut rendre les fichier executable en donnant au dossier openjms-0.7.7-beta-1/bin tous les droits : se placer à la racine de openjms-0…
+ 		$ chmod -R +x ./bin
+		info : https://doc.ubuntu-fr.org/permissions
+		pour lancer JMS depuis son bin
+		$ sh startup.sh
+		$ sh admin.sh
+		$ sh shutdown.sh
+			# If security is enabled, a valid user name and password is required to stop the OpenJMS server. E.g.:
+			$ shutdown.sh -u admin -p openjms
+
+		EXEMPLE 
+		$ cd examples/basic 
+		$ sh build.sh 
+		$ cd ../
+		$ chmod -R +x ./basic/
+		
+		# créer un topic ou queue
+		se positionner sur OPENJMSServer et Rght Click new queue or topic
+		
+		# LA QUEUE : POINT à POINT
+		#envoi
+		$ sh run.sh Sender queueNSY102 100
+		# Réception de 10 msg (les 10 premiers puisque c''est une file)
+		$ sh run.sh Receiver queueNSY102 10
+		# il reste donc 90 msg à envoyer. maintenant si on en demande (Receiver) 100 la file reste ouverte (le terminal rends pas la main). Dans une autre fenêtre si on en envoi (Sender) 20 les deux fenêtres du terminal se mettent à jour et la queue se referme.-> point à point 
+		# deux receivers sur la même file. => ERREUR DE CONCEPTION !!! => résultat : les receivers se répartissent les msg. Mouai…
+
+		# ENVOI SUR TOPIC
+		# dans 2 fenêtres on lance cette commande : 
+		$ sh run.sh Receiver topicMeteoNSY102 2
+		$ sh run.sh Sender topicMeteoNSY102 10
+		# Les 2 Receiver en recoivent 2 sur 10
+		# si les receiver en attendent plus qu''envoyé les receiver restent ouvert.
+		#tout ce qui est envoyé en trop est perdu ! d'où le durable subscriber…

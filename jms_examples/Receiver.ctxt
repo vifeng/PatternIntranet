@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Receiver
+comment0.text=\n\ Synchronous\ <code>MessageConsumer</code>\ example.\n\n\ @author\ <a\ href\="mailto\:tma@netspace.net.au">Tim\ Anderson</a>\n\ @version\ $Revision\:\ 1.2\ $\ $Date\:\ 2005/11/18\ 03\:28\:01\ $\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\n\ Main\ line.\n\n\ @param\ args\ command\ line\ arguments\n
+numComments=2

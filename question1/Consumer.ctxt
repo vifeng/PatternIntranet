@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Consumer
+comment1.params=requestChannel\ replyChannel
+comment1.target=Consumer(java.lang.String,\ java.lang.String)
+comment1.text=\ Cr\u00E9ation\ du\ Consumer\n\ @param\ requestChannel\ le\ nom\ de\ la\ file\ pour\ l'envoi\n\ @param\ replyChannel\ le\ nom\ de\ la\ file\ pour\ la\ r\u00E9ception\n
+comment2.params=s
+comment2.target=void\ send(java.lang.String)
+comment3.params=
+comment3.target=MessageQ1\ receive()
+comment4.params=
+comment4.target=void\ close()
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+numComments=6

@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Requestor()
+comment1.params=connection\ requestQueue\ replyQueueName
+comment1.target=Requestor\ newRequestor(Connection,\ Destination,\ String)
+comment2.params=connection\ requestQueue\ replyQueueName
+comment2.target=void\ initialize(Connection,\ Destination,\ String)
+comment3.params=message
+comment3.target=void\ send(String)
+comment4.params=msg
+comment4.target=void\ onMessage(Message)
+comment5.params=args
+comment5.target=void\ main(String[])
+numComments=6

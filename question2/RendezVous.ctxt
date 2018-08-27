@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=date\ motif
+comment0.target=RendezVous(Date,\ String)
+comment1.target=Date\ getDate()
+comment2.target=String\ getMotif()
+comment3.target=String\ toString()
+comment4.params=obj
+comment4.target=boolean\ equals(Object)
+numComments=5

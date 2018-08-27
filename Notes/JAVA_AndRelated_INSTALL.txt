@@ -1,0 +1,72 @@
+____________________________________
+# JAVA AND RELATED INSTALL COMMAND
+____________________________________
+
+
+# SET JAVA HOME
+________________________
+https://www.mkyong.com/java/how-to-set-java_home-environment-variable-on-mac-os-x/
+https://mbcdev.com/2013/04/09/setting-java_home-on-os-x-using-the-java_home-tool/
+# In Mac OSX 10.5 or later, Apple recommends to set the $JAVA_HOME variable to /usr/libexec/java_home, just export $JAVA_HOME in file ~/. bash_profile or ~/.profile.
+
+$ vim .bash_profile 
+export JAVA_HOME=$(/usr/libexec/java_home)
+$ source .bash_profile
+$ echo $JAVA_HOME
+/Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home
+relancer le terminal.
+
+# ou meilleure commande ? marche tout le temps ?
+$ launchctl setenv JAVA_HOME $(/usr/libexec/java_home)
+relancer le terminal.
+
+# COMMAND JAVA
+________________________
+# si on a défini JAVA HOME alors toutes ces commandes sont accessibles
+# Why /usr/libexec/java_home?
+This java_home can return the Java version specified in Java Preferences for the current user. For examples,
+
+$ /usr/libexec/java_home -V
+# show all Matching Java Virtual Machines (3):
+    1.7.0_05, x86_64:	"Java SE 7"	/Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home
+    1.6.0_41-b02-445, x86_64:	"Java SE 6"	/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+    1.6.0_41-b02-445, i386:	"Java SE 6"	/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+
+##return top Java version
+$ /usr/libexec/java_home
+/Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home
+
+## I want Java version 1.6
+$ /usr/libexec/java_home -v 1.6
+/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+
+
+#COMMAND JAVA
+________________________
+#accessible sans $JAVA_HOME
+# trouver java path
+$ which java ou where java
+
+# version de java
+$ java -version
+
+
+# Installation OPENJMS 
+________________________
+	télécharger JMS
+ 	définir la variable d''environnement $JAVA_HOME si c pas déjà fait
+ 	sous mac il faut rendre les fichier executable en donnant au dossier openjms-0.7.7-beta-1/bin tous les droits : se placer à la racine de openjms-0…
+ 		$ chmod -R +x ./bin
+		info : https://doc.ubuntu-fr.org/permissions
+		pour lancer JMS depuis son bin
+		$ sh startup.sh
+		$ sh admin.sh
+		$ sh shutdown.sh
+			# If security is enabled, a valid user name and password is required to stop the OpenJMS server. E.g.:
+			$ shutdown.sh -u admin -p openjms
+
+
+
+
+
+	

@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=PriseDeRDV
+comment1.params=topicName
+comment1.target=PriseDeRDV(java.lang.String)
+comment2.params=rdv
+comment2.target=void\ publier(RendezVous)
+comment3.params=
+comment3.target=void\ close()
+comment4.params=args
+comment4.target=void\ main(java.lang.String[])
+numComments=5
